@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  node_exporter: 
+    image: quay.io/prometheus/node-exporter:latest
+    environment:
+      - net="host"
+      - pid="host"
+      - restart="always"
+      - path.rootfs=/host
+    volumes:
+      - "/:/host:ro,rslave"
+    ports:
+      - 9100:9100
+
+
+# docker run -d \
+#   --net="host" \
+#   --pid="host" \
+#   --restart=always  \
+#   --name node_exporter \
+#   -v "/:/host:ro,rslave" \
+#   quay.io/prometheus/node-exporter:latest \
+#   --path.rootfs=/host 
