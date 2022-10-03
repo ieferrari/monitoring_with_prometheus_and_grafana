@@ -8,5 +8,9 @@ services:
       - ./volumes/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - ./volumes/prometheus/data:/prometheus
     network_mode: host
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
 
 #docker run -d -p 9090:9090  --network=host --name prom_1 -v volumes/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml  prom/prometheus

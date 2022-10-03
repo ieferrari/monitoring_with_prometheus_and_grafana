@@ -5,6 +5,10 @@ services:
     image: grafana/grafana
     network_mode: host
     volumes:
-    - ./volumes/grafana/data:/var/lib/grafana grafana/grafana
+      - ./volumes/grafana/data:/var/lib/grafana grafana/grafana
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
 
 # docker run -d --name=grafana -p 3000:3000 grafana/grafana
