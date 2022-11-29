@@ -3,6 +3,7 @@ version: '3.8'
 services:
   grafana:
     image: grafana/grafana
+    container_name: grafana
     network_mode: host
     volumes:
       - ./volumes/grafana/data:/var/lib/grafana grafana/grafana
